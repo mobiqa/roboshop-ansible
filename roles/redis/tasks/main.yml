@@ -1,6 +1,6 @@
 - name: Install Redis Repo
   ansible.builtin.yum:
-    src: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
+    name: https://rpms.remirepo.net/enterprise/remi-release-8.rpm
     state: installed
 
 - name: Enable Redis 6.2
