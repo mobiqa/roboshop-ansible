@@ -31,11 +31,14 @@
 
 - name: Download Dependencies
   ansible.builtin.shell: go mod init dispatch
+  args:
+    chdir: /app
+
 
 - name: Get the Dependencies
   ansible.builtin.shell: go get
 
-- name: Get the Dependencies
+- name: build the Dependencies
   ansible.builtin.shell: go build
 
 
