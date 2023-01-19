@@ -4,8 +4,6 @@
 - name: App pre-Req
   ansible.builtin.include_tasks: "app-prereq.yml"
 
-
-
 - name: Install Nodejs dependencies
   community.general.npm:
     path: /app
@@ -13,7 +11,6 @@
 
 - name: App pre-Req
   ansible.builtin.include_tasks: "systemd.yml"
-
 
 - name: Load Schema
   ansible.builtin.include_tasks: "{{schema_type}}-schema.yml"

@@ -1,6 +1,3 @@
-
-#LOAD_SCHEMA
-
 - name: Install Maven
   ansible.builtin.debug:
     name: maven
@@ -10,11 +7,11 @@
   ansible.builtin.include_tasks: "app-prereq.yml"
 
 - name: Maven Build
-  ansible.builtin.shell: mvn clean package
+  ansible.builtin.shell: mvn clean package ; mv target/{{component}}-1.0.jar {{component}}.jar
   args:
     chdir: /app
 
-- name: systemd setup
+- name: SystemD setup
   ansible.builtin.include_tasks: "systemd.yml"
 
 - name: Load Schema
