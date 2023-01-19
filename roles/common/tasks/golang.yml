@@ -23,12 +23,27 @@
 
 - name: Install GoLang
   ansible.builtin.yum:
-    name:
-      - golang
+    name: golang
     state: installed
 
 - name: App pre-Req
   ansible.builtin.include_tasks: "app-prereq.yml"
+
+- name: Download python dependencies
+  ansible.builtin.yum:
+    name:
+      - go mod init dispatch
+      - go get
+      - go build
+    state: installed
+
+- name: SystemD setup
+  ansible.builtin.include_tasks: "systemd.yml"
+
+- name: Load Schema
+  ansible.builtin.include_tasks: "{{schema_type}}-schema.yml"
+  when: schema_load
+
 
 #- name: Download golang dependencies
 #  ansible.builtin.pip:
