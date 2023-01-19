@@ -35,8 +35,8 @@
     chdir: /app
 
 
-- name: Get the Dependencies
-  ansible.builtin.shell: go get
+#- name: Get the Dependencies
+#  ansible.builtin.shell: go get
 
 - name: build the Dependencies
   ansible.builtin.shell: go build
