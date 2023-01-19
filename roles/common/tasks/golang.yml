@@ -29,13 +29,15 @@
 - name: App pre-Req
   ansible.builtin.include_tasks: "app-prereq.yml"
 
-- name: Download python dependencies
-  ansible.builtin.yum:
-    name:
-      - go mod init dispatch
-      - go get
-      - go build
-    state: installed
+- name: Download Dependencies
+  ansible.builtin.shell: go mod init dispatch
+
+- name: Get the Dependencies
+  ansible.builtin.shell: go get
+
+- name: Get the Dependencies
+  ansible.builtin.shell: go build
+
 
 - name: SystemD setup
   ansible.builtin.include_tasks: "systemd.yml"
