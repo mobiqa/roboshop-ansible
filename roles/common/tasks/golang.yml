@@ -30,17 +30,9 @@
   ansible.builtin.include_tasks: "app-prereq.yml"
 
 - name: Download Dependencies
-  ansible.builtin.shell: go mod init dispatch
+  ansible.builtin.shell: go mod init dispatch ; go get ; go build
   args:
     chdir: /app
-
-
-- name: Get the Dependencies
-  ansible.builtin.shell: go get
-
-- name: build the Dependencies
-  ansible.builtin.shell: go build
-
 
 - name: SystemD setup
   ansible.builtin.include_tasks: "systemd.yml"
@@ -48,6 +40,15 @@
 - name: Load Schema
   ansible.builtin.include_tasks: "{{schema_type}}-schema.yml"
   when: schema_load
+
+
+#- name: Get the Dependencies
+#  ansible.builtin.shell: go get
+#
+#- name: build the Dependencies
+#  ansible.builtin.shell: go build
+
+
 
 
 #- name: Download golang dependencies
