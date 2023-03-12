@@ -11,7 +11,7 @@
 
 - name: Load Schema
   community.mongodb.mongodb_shell:
-    login_host: mongodb-dev.devopsb70.online
+    login_host: mongodb-dev.mobiqa.online
     file: "/app/schema/{{component}}.js"
     idempotent: yes
 
