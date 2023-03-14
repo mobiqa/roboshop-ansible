@@ -1,3 +1,4 @@
 component: user
 schema_load: true
 schema_type: mongodb
+service_name: user
