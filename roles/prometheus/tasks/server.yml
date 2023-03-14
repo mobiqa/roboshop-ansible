@@ -8,11 +8,20 @@
       - { tag: "Name", label: "name" }
 
 
+- name: Copy Record Rules
+  ansible.builtin.template:
+    src: record-rules.yml
+    dest: /opt/prometheus/record-rules.yml
+
+
+
 - name: Restart Prometheus
   ansible.builtin.systemd:
     name: prometheus
     state: restarted
 
+- name: Check Prometheus Server Started or not
+  ansible.builtin.shell: netstat -lntp | grep 9090
 ### Grafana
 #- name: Make Template
 #  ansible.builtin.template:
