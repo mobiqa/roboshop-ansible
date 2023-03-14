@@ -1,1 +1,2 @@
 prometheus: exporter
+monitor_ssh_service: false

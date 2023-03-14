@@ -1,2 +1,3 @@
 component: frontend
 service_name: nginx
+monitor_ssh_service: true
