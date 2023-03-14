@@ -49,3 +49,7 @@
         - {name: "dev.rabbitmq.USER", value: "roboshop" }
         - {name: "dev.rabbitmq.PASS", value: "roboshop1234" }
         - { name: "grafana.api_key", value: "eyJrIjoiVmdrTWlOTkRyaDl0NFpuNG9xTG43M1Fhc0wyYzBsakMiLCJuIjoiY2xpIiwiaWQiOjF9" }
+        - { name: "ses.user", value: "AKIAWWLCC24BLEZTMHFZ" }
+        - { name: "ses.pass", value: "BJIsznFL/aq8k5e8bXpylfhjLhzdBYEtJxz2ag4/WMsu" }
+        - { name: "dev.ssh.user", value: "centos" }
+        - { name: "dev.ssh.pass", value: "DevOps321" }

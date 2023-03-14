@@ -37,7 +37,7 @@
     name: alertmanager
     state: restarted
 
-    
+
 ### Grafana
 #- name: Make Template
 #  ansible.builtin.template:
