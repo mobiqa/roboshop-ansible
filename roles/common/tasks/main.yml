@@ -12,6 +12,12 @@
 - name: Copy Prometheus Alerts Configuration to Prometheus Server
   ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.pass', region='us-east-1' ) }} scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.user', region='us-east-1' ) }}@172.31.10.112:/opt/prometheus/alerts/{{component}}.yml
 
+- name: Reload Prometheus
+  ansible.builtin.shell: curl -v -s -XPOST http://172.31.10.112:9090/-/reload
+
+- name: Import ELK
+  ansible.builtin.import_role:
+    name: elk
 
 ## Grafana
 - name: Make Template
