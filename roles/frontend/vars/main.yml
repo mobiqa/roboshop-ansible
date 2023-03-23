@@ -1,5 +1,5 @@
 component: frontend
 service_name: nginx
-monitor_ssh_service: true
-filebeat: true
-app_log_file: /var/log/nginx/access.log
+#monitor_ssh_service: true
+#filebeat: true
+#app_log_file: /var/log/nginx/access.log
