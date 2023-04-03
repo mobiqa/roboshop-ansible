@@ -8,15 +8,15 @@
       - { tag: "Name", label: "name" }
 
 
-- name: Copy Record Rules
-  ansible.builtin.template:
-    src: record-rules.yml
-    dest: /opt/prometheus/record-rules.yml
-
-- name: Copy Alert Rules
-  ansible.builtin.template:
-    src: alert-rules.yml
-    dest: /opt/prometheus/alert-rules.yml
+#- name: Copy Record Rules
+#  ansible.builtin.template:
+#    src: record-rules.yml
+#    dest: /opt/prometheus/record-rules.yml
+#
+#- name: Copy Alert Rules
+#  ansible.builtin.template:
+#    src: alert-rules.yml
+#    dest: /opt/prometheus/alert-rules.yml
 
 
 - name: Restart Prometheus
@@ -24,19 +24,19 @@
     name: prometheus
     state: restarted
 
-- name: Check Prometheus Server Started or not
-  ansible.builtin.shell: netstat -lntp | grep 9090
-
-- name: Copy AlertManager Configfuration
-  ansible.builtin.template:
-    src: alertmanager.yml
-    dest: /opt/alertmanager/alertmanager.yml
-
-- name: Restart AlertManager
-  ansible.builtin.systemd:
-    name: alertmanager
-    state: restarted
-
+#- name: Check Prometheus Server Started or not
+#  ansible.builtin.shell: netstat -lntp | grep 9090
+#
+#- name: Copy AlertManager Configfuration
+#  ansible.builtin.template:
+#    src: alertmanager.yml
+#    dest: /opt/alertmanager/alertmanager.yml
+#
+#- name: Restart AlertManager
+#  ansible.builtin.systemd:
+#    name: alertmanager
+#    state: restarted
+#
 
 ### Grafana
 #- name: Make Template
