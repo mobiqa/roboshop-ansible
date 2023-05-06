@@ -8,10 +8,10 @@
     path: /usr/share/nginx/html
     state: absent
 
-#- name: Create HTTP Document Directory
-#  ansible.builtin.file:
-#    path: /usr/share/nginx/html
-#    state: directory
+- name: Create HTTP Document Directory
+  ansible.builtin.file:
+    path: /usr/share/nginx/html
+    state: directory
 #
 #- name: Download frontend App content
 #  ansible.builtin.unarchive:
