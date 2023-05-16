@@ -1,4 +1,4 @@
-- name: Install Python
+- name: Install Python 3
   ansible.builtin.yum:
     name:
       - python36
