@@ -59,8 +59,8 @@
 ##    file: "/app/schema/catalogue.js"
 ##    idempotent: yes
 
-- name: Load Schema
-  ansible.builtin.shell: mongodb --host mongodb-dev.mobiqa.online </app/schema/catalogue.js
+#- name: Load Schema
+#  ansible.builtin.shell: mongodb --host mongodb-dev.mobiqa.online </app/schema/catalogue.js
 
 
 - name: Import NodeJS

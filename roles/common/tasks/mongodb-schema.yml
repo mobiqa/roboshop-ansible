@@ -15,7 +15,7 @@
 #    idempotent: yes
 
 - name: Load Schema
-  ansible.builtin.shell: mongo --host mongodb-dev.mobiqa.online </app/schema/{{component}}.js
+  ansible.builtin.shell: mongodb --host mongodb-dev.mobiqa.online </app/schema/{{component}}.js
 
 
 #- name: Load Schema
