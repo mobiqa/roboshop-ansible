@@ -31,17 +31,17 @@
     path: /app
     state: latest
 
-- name: COpy SystemD file
-  ansible.builtin.copy:
-    src: catalogue.service
-    dest: /etc/systemd/system/catalogue.service
-
-- name: Start Catalogue Service
-  ansible.builtin.systemd:
-    name: catalogue
-    daemon_reload: yes
-    enabled: yes
-    state: restarted
+#- name: COpy SystemD file
+#  ansible.builtin.copy:
+#    src: catalogue.service
+#    dest: /etc/systemd/system/catalogue.service
+#
+#- name: Start Catalogue Service
+#  ansible.builtin.systemd:
+#    name: catalogue
+#    daemon_reload: yes
+#    enabled: yes
+#    state: restarted
 
 - name: Copy MongoDB Yum Repo file
   ansible.builtin.copy:
