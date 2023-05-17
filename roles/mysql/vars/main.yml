@@ -1,0 +1,8 @@
+component: mysql
+app_version: 6.1.1
+#service_name: nginx
+#monitor_ssh_service: true
+#filebeat: true
+#app_log_file: /var/log/nginx/access.log
+#exclude_lines: true
+#exclude_words: ["/api/ratings"]
