@@ -10,20 +10,9 @@
 
 #- name: Load Schema
 #  community.mongodb.mongodb_shell:
-#    login_host: mongodb-dev.mobiqa.online
+#    login_host: mongodb-dev.devopsb70.online
 #    file: "/app/schema/{{component}}.js"
 #    idempotent: yes
 
-#- name: Load Schema
-#  ansible.builtin.shell: mongo --host mongodb-dev.mobiqa.online </app/schema/{{component}}.js
-#
-
-#- name: Download MongoDB Pem file
-#  ansible.builtin.get_url:
-#      url: https://s3.amazonaws.com/rds-downloads/rds-combined-ca-bundle.pem
-#      dest: /app/rds-combined-ca-bundle.pem
-
-
 - name: Load Schema
   ansible.builtin.shell: mongo --ssl --host {{ lookup('aws_ssm', "{{env}}.docdb.DOCDB_URL", region='us-east-1' ) }}:27017 --sslCAFile /app/rds-combined-ca-bundle.pem --username {{ lookup('aws_ssm', "{{env}}.docdb.DB_ADMIN_USER", region='us-east-1' ) }} --password {{ lookup('aws_ssm', "{{env}}.docdb.DB_ADMIN_PASS", region='us-east-1' ) }} < /app/schema/{{component}}.js
-#  ansible.builtin.shell: mongo --ssl --host {{ lookup('amazon.aws.aws_ssm', '{{env}}.docdb.endpoint', region='us-east-1') }}:27017 --sslCAFile /app/rds-combined-ca-bundle.pem --username {{ lookup('amazon.aws.aws_ssm', '{{env}}.docdb.user', region='us-east-1') }} --password {{ lookup('amazon.aws.aws_ssm', '{{env}}.docdb.pass', region='us-east-1') }} </app/schema/{{component}}.js
