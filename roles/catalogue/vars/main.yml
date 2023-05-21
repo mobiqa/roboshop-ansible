@@ -2,4 +2,4 @@ component: catalogue
 schema_load: true
 schema_type: mongodb
 app_version: 6.1.5
-#service_name: catalogue
+service_name: catalogue
