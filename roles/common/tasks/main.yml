@@ -4,22 +4,6 @@
 - name: Install Prometheus Node Exporter
   ansible.builtin.shell: labauto prometheus-node-exporter
 
-#- name: Setup Prometheus Alerts Configuration
-#  ansible.builtin.template:
-#    src: alert.yml
-#    dest: /tmp/alert.yml
-#
-#- name: Copy Prometheus Alerts Configuration to Prometheus Server
-#  ansible.builtin.shell: sshpass -p {{ lookup('aws_ssm', '{{env}}.ssh.pass', region='us-east-1' ) }} scp /tmp/alert.yml {{ lookup('aws_ssm', '{{env}}.ssh.user', region='us-east-1' ) }}@172.31.15.14:/opt/prometheus/alerts/{{component}}.yml
-#
-#- name: Reload Prometheus
-#  ansible.builtin.shell: curl -v -s -XPOST http://172.31.15.14:9090/-/reload
-
-#- name: Import ELK
-#  ansible.builtin.import_role:
-#    name: elk
-#
-## Grafana
 - name: Make Template
   ansible.builtin.template:
     src: grafana-template.json
