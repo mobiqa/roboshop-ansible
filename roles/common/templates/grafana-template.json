@@ -24,14 +24,14 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 1,
+  "id": 2,
   "links": [],
   "liveNow": false,
   "panels": [
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "dmSyUJ-Vk"
+        "uid": "oDHLPbx4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -40,13 +40,17 @@
           },
           "mappings": [],
           "max": 100,
-          "min": 1,
+          "min": 0,
           "thresholds": {
             "mode": "absolute",
             "steps": [
               {
                 "color": "green",
                 "value": null
+              },
+              {
+                "color": "#EAB839",
+                "value": 50
               },
               {
                 "color": "red",
@@ -59,12 +63,12 @@
         "overrides": []
       },
       "gridPos": {
-        "h": 3,
-        "w": 4,
+        "h": 8,
+        "w": 3,
         "x": 0,
         "y": 0
       },
-      "id": 8,
+      "id": 4,
       "options": {
         "orientation": "auto",
         "reduceOptions": {
@@ -82,19 +86,19 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "dmSyUJ-Vk"
+            "uid": "oDHLPbx4z"
           },
-          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\",name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
-      "title": "CPU%",
+      "title": "CPU %",
       "type": "gauge"
     },
     {
       "datasource": {
         "type": "prometheus",
-        "uid": "dmSyUJ-Vk"
+        "uid": "oDHLPbx4z"
       },
       "fieldConfig": {
         "defaults": {
@@ -144,37 +148,12 @@
             ]
           }
         },
-        "overrides": [
-          {
-            "__systemRef": "hideSeriesFrom",
-            "matcher": {
-              "id": "byNames",
-              "options": {
-                "mode": "exclude",
-                "names": [
-                  "{cpu=\"0\", environment=\"dev\", instance=\"10.0.5.52:9100\", job=\"ec2-nodes\", mode=\"idle\", name=\"dev-user\"}"
-                ],
-                "prefix": "All except:",
-                "readOnly": true
-              }
-            },
-            "properties": [
-              {
-                "id": "custom.hideFrom",
-                "value": {
-                  "legend": false,
-                  "tooltip": false,
-                  "viz": true
-                }
-              }
-            ]
-          }
-        ]
+        "overrides": []
       },
       "gridPos": {
-        "h": 4,
-        "w": 16,
-        "x": 4,
+        "h": 8,
+        "w": 12,
+        "x": 3,
         "y": 0
       },
       "id": 2,
@@ -193,28 +172,16 @@
         {
           "datasource": {
             "type": "prometheus",
-            "uid": "dmSyUJ-Vk"
+            "uid": "oDHLPbx4z"
           },
-          "expr": "100-floor(rate(node_cpu_seconds_total{ mode=\"idle\"}[1m]) * 100)\r\n",
+          "expr": "100 - (avg by (name) (floor(rate(node_cpu_seconds_total{ mode=\"idle\", name=\"{{env}}-{{component}}\"}[1m]) * 100)))",
           "refId": "A"
         }
       ],
-      "title": "cpu used %",
+      "title": "CPU Time",
       "type": "timeseries"
-    },
-    {
-      "gridPos": {
-        "h": 1,
-        "w": 24,
-        "x": 0,
-        "y": 4
-      },
-      "id": 4,
-      "title": "Row title",
-      "type": "row"
     }
   ],
-  "refresh": "",
   "schemaVersion": 36,
   "style": "dark",
   "tags": [],
@@ -222,7 +189,7 @@
     "list": []
   },
   "time": {
-    "from": "now-15m",
+    "from": "now-6h",
     "to": "now"
   },
   "timepicker": {},
