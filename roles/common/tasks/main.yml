@@ -16,9 +16,9 @@
   ansible.builtin.shell: curl -v -s -XPOST http://172.31.15.14:9090/-/reload
 
 
-
-
-
+- name: Import ELK
+  ansible.builtin.import_role:
+    name: elk
 
 - name: Make Template
   ansible.builtin.template:
