@@ -22,34 +22,33 @@ filebeat.inputs:
   - type: filestream
 
     # Unique ID among all inputs, an ID is required.
-    id: {{ component }}
+    id: my-filestream-id
 
     # Change to true to enable this input configuration.
     enabled: true
 
     # Paths that should be crawled and fetched. Glob based paths.
     paths:
-      - {{ app_log_file }}
+      - /var/log/nginx/access.log
       #- c:\programdata\elasticsearch\logs\*
 
     # Exclude lines. A list of regular expressions to match. It drops the lines that are
     # matching any regular expression from the list.
-  {% if exclude_lines %}
-exclude_lines: {{ exclude_words }}
-  {% endif %}
-# Include lines. A list of regular expressions to match. It exports the lines that are
-# matching any regular expression from the list.
-#include_lines: ['^ERR', '^WARN']
+    #exclude_lines: ['^DBG']
 
-# Exclude files. A list of regular expressions to match. Filebeat drops the files that
-# are matching any regular expression from the list. By default, no files are dropped.
-#prospector.scanner.exclude_files: ['.gz$']
+    # Include lines. A list of regular expressions to match. It exports the lines that are
+    # matching any regular expression from the list.
+    #include_lines: ['^ERR', '^WARN']
 
-# Optional additional fields. These fields can be freely picked
-# to add additional information to the crawled log files for filtering
-fields:
-  component: {{ component }}
+    # Exclude files. A list of regular expressions to match. Filebeat drops the files that
+    # are matching any regular expression from the list. By default, no files are dropped.
+    #prospector.scanner.exclude_files: ['.gz$']
 
+    # Optional additional fields. These fields can be freely picked
+    # to add additional information to the crawled log files for filtering
+    #fields:
+    #  level: debug
+    #  review: 1
 
 # ============================== Filebeat modules ==============================
 
@@ -150,23 +149,23 @@ output.logstash:
   # The Logstash hosts
   hosts: ["172.31.82.151:5044"]
 
-    # Optional SSL. By default is off.
-    # List of root certificates for HTTPS server verifications
-    #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
+  # Optional SSL. By default is off.
+  # List of root certificates for HTTPS server verifications
+  #ssl.certificate_authorities: ["/etc/pki/root/ca.pem"]
 
-    # Certificate for SSL client authentication
-    #ssl.certificate: "/etc/pki/client/cert.pem"
+  # Certificate for SSL client authentication
+  #ssl.certificate: "/etc/pki/client/cert.pem"
 
-    # Client Certificate Key
-    #ssl.key: "/etc/pki/client/cert.key"
+  # Client Certificate Key
+  #ssl.key: "/etc/pki/client/cert.key"
 
-    # ================================= Processors =================================
-    #processors:
-    #  - add_host_metadata:
-    #      when.not.contains.tags: forwarded
-    #  - add_cloud_metadata: ~
-    #  - add_docker_metadata: ~
-    #  - add_kubernetes_metadata: ~
+# ================================= Processors =================================
+processors:
+  - add_host_metadata:
+      when.not.contains.tags: forwarded
+  - add_cloud_metadata: ~
+  - add_docker_metadata: ~
+  - add_kubernetes_metadata: ~
 
     # ================================== Logging ===================================
 
@@ -220,7 +219,7 @@ output.logstash:
     #api_key:
 
     # Secret token for the APM Server(s).
-  #secret_token:
+    #secret_token:
 
 
 # ================================= Migration ==================================
