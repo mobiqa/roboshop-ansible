@@ -1,5 +1,3 @@
 schema_type: none
-
-
 prometheus: exporter
 monitor_ssh_service: false
