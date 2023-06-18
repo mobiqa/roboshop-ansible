@@ -63,18 +63,18 @@
         region: us-east-1
         string_type: "SecureString"
       loop:
-        - {name: "dev.payment.AMQP_PASS", value: "roboshop123" }
-        - {name: "dev.rabbitmq.AMQP_PASS", value: "roboshop123" }
-        - {name: "dev.mysql.DB_ADMIN_USER", value: "root" }
-        - {name: "dev.mysql.DB_ADMIN_PASS", value: "RoboShop@1" }
-        - {name: "dev.docdb.DB_ADMIN_USER", value: "admin1" }
-        - {name: "dev.docdb.DB_ADMIN_PASS", value: "RoboShop123" }
-        - {name: "dev.rds.DB_ADMIN_USER", value: "admin1" }
-        - {name: "dev.rds.DB_ADMIN_PASS", value: "RoboShop123" }
-        - {name: "dev.rabbitmq.USER", value: "roboshop" }
-        - {name: "dev.rabbitmq.PASS", value: "roboshop1234" }
+        - {name: "prod.payment.AMQP_PASS", value: "roboshop123" }
+        - {name: "prod.rabbitmq.AMQP_PASS", value: "roboshop123" }
+        - {name: "prod.mysql.DB_ADMIN_USER", value: "root" }
+        - {name: "prod.mysql.DB_ADMIN_PASS", value: "RoboShop@1" }
+        - {name: "prod.docdb.DB_ADMIN_USER", value: "admin1" }
+        - {name: "prod.docdb.DB_ADMIN_PASS", value: "RoboShop123" }
+        - {name: "prod.rds.DB_ADMIN_USER", value: "admin1" }
+        - {name: "prod.rds.DB_ADMIN_PASS", value: "RoboShop123" }
+        - {name: "prod.rabbitmq.USER", value: "roboshop" }
+        - {name: "prod.rabbitmq.PASS", value: "roboshop1234" }
         - { name: "grafana.api_key", value: "eyJrIjoiY2sxOWRRS0Q3TFg1WFd2c1pOM2MxY0F4dGhGc3hCR00iLCJuIjoiY2xpIiwiaWQiOjF9" }
         - { name: "ses.user", value: "AKIA4OMC3FSKL3BF5CDK" }
         - { name: "ses.pass", value: "BKYkK+FVFWi2VA+MCuBy+Hth5hDFXlxCpDi1d1Ge4ajB" }
-        - { name: "dev.ssh.user", value: "centos" }
-        - { name: "dev.ssh.pass", value: "DevOps321" }
+        - { name: "prod.ssh.user", value: "centos" }
+        - { name: "prod.ssh.pass", value: "DevOps321" }
