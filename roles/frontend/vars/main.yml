@@ -1,5 +1,5 @@
 component: frontend
-app_version: 8.1.2
+app_version: 8.1.1
 service_name: nginx
 monitor_ssh_service: true
 filebeat: true
