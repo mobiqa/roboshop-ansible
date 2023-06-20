@@ -29,64 +29,12 @@
         - {name: "dev.user.MONGO", value: "true" }
         - {name: "dev.user.MONGO_URL", value: "mongodb://mongodb-dev.mobiqa.online:27017/users" }
         - {name: "dev.user.REDIS_HOST", value: "redis-dev.mobiqa.online" }
-
-### PROD Mutable & Immutable
-#
-#        - { name: "prod.cart.REDIS_HOST", value: "redis-prod.mobiqa.online" }
-#        - { name: "prod.cart.CATALOGUE_HOST", value: "catalogue-prod.mobiqa.online" }
-#        - { name: "prod.catalogue.MONGO", value: "true" }
-#        - { name: "prod.catalogue.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/catalogue" }
-#        - { name: "prod.catalogue.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/catalogue" }
-#        - { name: "prod.frontend.CATALOGUE_URL", value: "http://catalogue-prod.mobiqa.online:80/" }
-#        - { name: "prod.frontend.CART_URL", value: "http://cart-prod.mobiqa.online:80/" }
-#        - { name: "prod.frontend.USER_URL", value: "http://user-prod.mobiqa.online:80/" }
-#        - { name: "prod.frontend.PAYMENT_URL", value: "http://payment-prod.mobiqa.online:80/" }
-#        - { name: "prod.frontend.SHIPPING_URL", value: "http://shipping-prod.mobiqa.online:80/" }
-#        - { name: "prod.payment.CART_HOST", value: "cart-prod.mobiqa.online" }
-#        - { name: "prod.payment.USER_HOST", value: "user-prod.mobiqa.online" }
-#        - { name: "prod.payment.CART_PORT", value: "80" }
-#        - { name: "prod.payment.USER_PORT", value: "80" }
-#        - { name: "prod.payment.AMQP_HOST", value: "rabbitmq-prod.mobiqa.online" }
-#        - { name: "prod.payment.AMQP_USER", value: "roboshop" }
-#        - { name: "prod.shipping.CART_ENDPOINT", value: "cart-prod.mobiqa.online:80" }
-#        - { name: "prod.shipping.DB_HOST", value: "mysql-prod.mobiqa.online" }
-#        - { name: "prod.user.MONGO", value: "true" }
-#        - { name: "prod.user.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/users" }
-#        - { name: "prod.user.REDIS_HOST", value: "redis-prod.mobiqa.online" }
-#
-
-        ### PASSWORDS SHOULD NEVER BE KEPT IN THESE REPOS, THOSE SHOULD BE CREATED MAUALLY, BUT FOR LAB PURPOSE IAM CREATING HERE
-    - name: Create Secrets
-      community.aws.aws_ssm_parameter_store:
-        name: "{{ item.name }}"
-        value: "{{ item.value }}"
-        region: us-east-1
-        string_type: "SecureString"
-      loop:
-        - {name: "prod.payment.AMQP_PASS", value: "roboshop123" }
-        - {name: "prod.rabbitmq.AMQP_PASS", value: "roboshop123" }
-        - {name: "prod.mysql.DB_ADMIN_USER", value: "root" }
-        - {name: "prod.mysql.DB_ADMIN_PASS", value: "RoboShop@1" }
-        - {name: "prod.docdb.DB_ADMIN_USER", value: "admin1" }
-        - {name: "prod.docdb.DB_ADMIN_PASS", value: "RoboShop123" }
-        - {name: "prod.rds.DB_ADMIN_USER", value: "admin1" }
-        - {name: "prod.rds.DB_ADMIN_PASS", value: "RoboShop123" }
-        - {name: "prod.rabbitmq.USER", value: "roboshop" }
-        - {name: "prod.rabbitmq.PASS", value: "roboshop1234" }
-        - { name: "grafana.api_key", value: "eyJrIjoiY2sxOWRRS0Q3TFg1WFd2c1pOM2MxY0F4dGhGc3hCR00iLCJuIjoiY2xpIiwiaWQiOjF9" }
-        - { name: "ses.user", value: "AKIA4OMC3FSKL3BF5CDK" }
-        - { name: "ses.pass", value: "BKYkK+FVFWi2VA+MCuBy+Hth5hDFXlxCpDi1d1Ge4ajB" }
-        - { name: "prod.ssh.user", value: "centos" }
-        - { name: "prod.ssh.pass", value: "DevOps321" }
-        # PROD KUBERNETES
-        - {name: "prod.cart.REDIS_HOST", value: "prod-elasticache-cluster.ppugfs.0001.use1.cache.amazonaws.com" }
-        - {name: "prod.cart.CATALOGUE_HOST", value: "catalogue-roboshop" }
-        - {name: "prod.cart.CATALOGUE_PORT", value: "8080" }
-        - {name: "prod.catalogue.DOCUMENTDB", value: "true" }
-        - {name: "prod.catalogue.DOCDB_USER", value: "admin1" }
-        - {name: "prod.catalogue.DOCDB_PASS", value: "RoboShop123" }
-        - {name: "prod.catalogue.MONGO_URL", value: "mongodb://admin1:RoboShop123@prod-docdb-cluster.cluster-cmscnppwjzuf.us-east-1.docdb.amazonaws.com:27017/catalogue?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false" }
-        - {name: "prod.catalogue.DOCDB_ENDPOINT", value: "prod-docdb-cluster.cluster-cmscnppwjzuf.us-east-1.docdb.amazonaws.com:27017" }
+        ## PROD
+        - {name: "prod.cart.REDIS_HOST", value: "redis-prod.mobiqa.online" }
+        - {name: "prod.cart.CATALOGUE_HOST", value: "catalogue-prod.mobiqa.online" }
+        - {name: "prod.catalogue.MONGO", value: "true" }
+        - {name: "prod.catalogue.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/catalogue" }
+        - {name: "prod.catalogue.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/catalogue" }
         - {name: "prod.frontend.CATALOGUE_URL", value: "http://catalogue-prod.mobiqa.online:80/" }
         - {name: "prod.frontend.CART_URL", value: "http://cart-prod.mobiqa.online:80/" }
         - {name: "prod.frontend.USER_URL", value: "http://user-prod.mobiqa.online:80/" }
@@ -98,16 +46,12 @@
         - {name: "prod.payment.USER_PORT", value: "80" }
         - {name: "prod.payment.AMQP_HOST", value: "rabbitmq-prod.mobiqa.online" }
         - {name: "prod.payment.AMQP_USER", value: "roboshop" }
-        - {name: "prod.shipping.CART_ENDPOINT", value: "catalogue-roboshop:8080" }
-        - {name: "prod.shipping.DB_HOST", value: "prod-rds.cluster-cmscnppwjzuf.us-east-1.rds.amazonaws.com" }
-        - {name: "prod.shipping.DB_USER", value: "admin1" }
-        - {name: "prod.shipping.DB_PASS", value: "RoboShop123" }
-        - {name: "prod.user.DOCUMENTDB", value: "true" }
-        - {name: "prod.user.DOCDB_USER", value: "admin1" }
-        - {name: "prod.user.DOCDB_PASS", value: "RoboShop123" }
-        - {name: "prod.user.MONGO_URL", value: "mongodb://admin1:RoboShop123@prod-docdb-cluster.cluster-cmscnppwjzuf.us-east-1.docdb.amazonaws.com:27017/users?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false" }
-        - {name: "prod.user.DOCDB_ENDPOINT", value: "prod-docdb-cluster.cluster-cmscnppwjzuf.us-east-1.docdb.amazonaws.com:27017" }
-        - {name: "prod.user.REDIS_HOST", value: "prod-elasticache-cluster.ppugfs.0001.use1.cache.amazonaws.com" }
+        - {name: "prod.shipping.CART_ENDPOINT", value: "cart-prod.mobiqa.online:80" }
+        - {name: "prod.shipping.DB_HOST", value: "mysql-prod.mobiqa.online" }
+        - {name: "prod.user.MONGO", value: "true" }
+        - {name: "prod.user.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/users" }
+        - {name: "prod.user.REDIS_HOST", value: "redis-prod.mobiqa.online" }
+
         ### PASSWORDS SHOULD NEVER BE KEPT IN THESE REPOS, THOSE SHOULD BE CREATED MAUALLY, BUT FOR LAB PURPOSE IAM CREATING HERE
     - name: Create Secrets
       community.aws.aws_ssm_parameter_store:
@@ -148,10 +92,10 @@
         - {name: "prod.ssh.user", value: "centos" }
         - {name: "prod.ssh.pass", value: "DevOps321" }
 
-        # App versions to deploy
-        - {name: "prod.cart.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.catalogue.APP_VERSION", value: "8.1.2" }
-        - {name: "prod.frontend.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.payment.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.shipping.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.user.APP_VERSION", value: "8.1.1" }
+        ## App versions to deploy
+        - {name: "prod.cart.APP_VERSION", value: "1.0.0" }
+        - {name: "prod.catalogue.APP_VERSION", value: "1.0.2" }
+        - {name: "prod.frontend.APP_VERSION", value: "1.0.0" }
+        - {name: "prod.payment.APP_VERSION", value: "1.0.0" }
+        - {name: "prod.shipping.APP_VERSION", value: "1.0.0" }
+        - {name: "prod.user.APP_VERSION", value: "1.0.1" }
