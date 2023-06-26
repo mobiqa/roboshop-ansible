@@ -30,11 +30,14 @@
         - {name: "dev.user.MONGO_URL", value: "mongodb://mongodb-dev.mobiqa.online:27017/users" }
         - {name: "dev.user.REDIS_HOST", value: "redis-dev.mobiqa.online" }
         ## PROD
-        - {name: "prod.cart.REDIS_HOST", value: "redis-prod.mobiqa.online" }
-        - {name: "prod.cart.CATALOGUE_HOST", value: "catalogue-prod.mobiqa.online" }
-        - {name: "prod.catalogue.MONGO", value: "true" }
-        - {name: "prod.catalogue.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/catalogue" }
-        - {name: "prod.catalogue.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/catalogue" }
+        - {name: "prod.cart.REDIS_HOST", value: "prod-elasticache-cluster.sc31bc.0001.use1.cache.amazonaws.com" }
+        - {name: "prod.cart.CATALOGUE_HOST", value: "catalogue-roboshop" }
+        - {name: "prod.cart.CATALOGUE_PORT", value: "8080" }
+        - {name: "prod.catalogue.DOCUMENTDB", value: "true" }
+        - {name: "prod.catalogue.DOCDB_USER", value: "admin1" }
+        - {name: "prod.catalogue.DOCDB_PASS", value: "RoboShop123" }
+        - {name: "prod.catalogue.MONGO_URL", value: "mongodb://admin1:RoboShop123@dev-docdb-cluster.cluster-cx23jsgx2qln.us-east-1.docdb.amazonaws.com:27017/catalogue?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false" }
+        - {name: "prod.catalogue.DOCDB_ENDPOINT", value: "prod-docdb-cluster.cluster-cx23jsgx2qln.us-east-1.docdb.amazonaws.com:27017" }
         - {name: "prod.frontend.CATALOGUE_URL", value: "http://catalogue-prod.mobiqa.online:80/" }
         - {name: "prod.frontend.CART_URL", value: "http://cart-prod.mobiqa.online:80/" }
         - {name: "prod.frontend.USER_URL", value: "http://user-prod.mobiqa.online:80/" }
@@ -46,11 +49,15 @@
         - {name: "prod.payment.USER_PORT", value: "80" }
         - {name: "prod.payment.AMQP_HOST", value: "rabbitmq-prod.mobiqa.online" }
         - {name: "prod.payment.AMQP_USER", value: "roboshop" }
-        - {name: "prod.shipping.CART_ENDPOINT", value: "cart-prod.mobiqa.online:80" }
-        - {name: "prod.shipping.DB_HOST", value: "mysql-prod.mobiqa.online" }
-        - {name: "prod.user.MONGO", value: "true" }
-        - {name: "prod.user.MONGO_URL", value: "mongodb://mongodb-prod.mobiqa.online:27017/users" }
-        - {name: "prod.user.REDIS_HOST", value: "redis-prod.mobiqa.online" }
+        - {name: "prod.shipping.DB_HOST", value: "prod-rds.cluster-cx23jsgx2qln.us-east-1.rds.amazonaws.com" }
+        - {name: "prod.shipping.DB_USER", value: "admin1" }
+        - {name: "prod.shipping.DB_PASS", value: "RoboShop123" }
+        - {name: "prod.user.DOCUMENTDB", value: "true" }
+        - {name: "prod.user.DOCDB_USER", value: "admin1" }
+        - {name: "prod.user.DOCDB_PASS", value: "RoboShop123" }
+        - {name: "prod.user.MONGO_URL", value: "mongodb://admin1:RoboShop123@dev-docdb-cluster.cluster-cx23jsgx2qln.us-east-1.docdb.amazonaws.com:27017/users?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false" }
+        - {name: "prod.user.DOCDB_ENDPOINT", value: "prod-docdb-cluster.cluster-cx23jsgx2qln.us-east-1.docdb.amazonaws.com:27017" }
+        - {name: "prod.user.REDIS_HOST", value: "prod-elasticache-cluster.sc31bc.0001.use1.cache.amazonaws.com" }
 
         ### PASSWORDS SHOULD NEVER BE KEPT IN THESE REPOS, THOSE SHOULD BE CREATED MAUALLY, BUT FOR LAB PURPOSE IAM CREATING HERE
     - name: Create Secrets
@@ -91,11 +98,11 @@
         - {name: "ses.pass", value: "BNcrOH3Rp67olv9cU8iIT7t9k8h3WeWCO+8t0NA3uRKJ" }
         - {name: "prod.ssh.user", value: "centos" }
         - {name: "prod.ssh.pass", value: "DevOps321" }
-
-        ## App versions to deploy
-        - {name: "prod.cart.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.catalogue.APP_VERSION", value: "8.1.2" }
-        - {name: "prod.frontend.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.payment.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.shipping.APP_VERSION", value: "8.1.1" }
-        - {name: "prod.user.APP_VERSION", value: "8.1.1" }
+#
+#        ## App versions to deploy
+#        - {name: "prod.cart.APP_VERSION", value: "8.1.1" }
+#        - {name: "prod.catalogue.APP_VERSION", value: "8.1.2" }
+#        - {name: "prod.frontend.APP_VERSION", value: "8.1.1" }
+#        - {name: "prod.payment.APP_VERSION", value: "8.1.1" }
+#        - {name: "prod.shipping.APP_VERSION", value: "8.1.1" }
+#        - {name: "prod.user.APP_VERSION", value: "8.1.1" }
