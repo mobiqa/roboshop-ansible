@@ -55,7 +55,7 @@
         - {name: "prod.user.DOCUMENTDB", value: "true" }
         - {name: "prod.user.DOCDB_USER", value: "admin1" }
         - {name: "prod.user.DOCDB_PASS", value: "RoboShop123" }
-        - {name: "prod.user.MONGO_URL", value: "mongodb://admin1:RoboShop123@dev-docdb-cluster.cluster-cx23jsgx2qln.us-east-1.docdb.amazonaws.com:27017/users?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false" }
+        - {name: "prod.user.MONGO_URL", value: "mongodb://admin1:RoboShop123@prod-docdb-cluster.cluster-cx23jsgx2qln.us-east-1.docdb.amazonaws.com:27017/users?tls=true&replicaSet=rs0&readPreference=secondaryPreferred&retryWrites=false" }
         - {name: "prod.user.DOCDB_ENDPOINT", value: "prod-docdb-cluster.cluster-cx23jsgx2qln.us-east-1.docdb.amazonaws.com:27017" }
         - {name: "prod.user.REDIS_HOST", value: "prod-elasticache-cluster.sc31bc.0001.use1.cache.amazonaws.com" }
 
